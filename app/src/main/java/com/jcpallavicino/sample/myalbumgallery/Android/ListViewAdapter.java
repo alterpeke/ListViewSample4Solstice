@@ -58,11 +58,16 @@ public class ListViewAdapter extends BaseAdapter {
             viewHolder.albumName=(TextView)convertView.findViewById(R.id.album_name);
             viewHolder.artistName=(TextView)convertView.findViewById(R.id.artist_name);
             viewHolder.img = (ImageView)convertView.findViewById(R.id.img);
+            viewHolder.img_isfav = (ImageView) convertView.findViewById(R.id.img_isfavorite);
             //Attach it to convertView
             convertView.setTag(viewHolder);
         }
         //Get holder object from convertView
         ViewHolder holder = (ViewHolder)convertView.getTag();
+
+        if (albumList.get(position).getArtistName()== "null"){
+            albumList.get(position).setArtistName("");
+        }
 
         //Adapter gives position parameter.
         //This parameter helps us to know which item view is wanted by adapter.
@@ -70,6 +75,12 @@ public class ListViewAdapter extends BaseAdapter {
         holder.artistName.setText(albumList.get(position).getArtistName());
         //Draw the URL image into ImageView container
         Picasso.with(this.context).load(albumList.get(position).getImagen()).into(holder.img);
+        if (albumList.get(position).getImg_isfavorite()=="true"){
+            Picasso.with(this.context).load(R.drawable.favoritetrue).into(holder.img_isfav);
+        }else{
+            holder.img_isfav.setVisibility(View.GONE);
+        }
+
         return convertView;
     }
 
@@ -77,5 +88,6 @@ public class ListViewAdapter extends BaseAdapter {
         TextView albumName;
         TextView artistName;
         ImageView img;
+        ImageView img_isfav;
     }
 }

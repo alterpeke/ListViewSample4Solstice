@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private void setAdapters() {
         //Create adapter and set it to listview.
         for(int i=0; i<contactListFav.size(); i++){
-            Album al = new Album(contactListFav.get(i).name, contactListFav.get(i).companyName, contactListFav.get(i).smallImageURL);
+            Album al = new Album(contactListFav.get(i).name, contactListFav.get(i).companyName, contactListFav.get(i).smallImageURL, contactListFav.get(i).isFavorite);
             albumList.add(al);
 
         }
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         for(int i=0; i<contactListOthers.size(); i++){
-            Album al = new Album(contactListOthers.get(i).name, contactListOthers.get(i).companyName, contactListOthers.get(i).smallImageURL);
+            Album al = new Album(contactListOthers.get(i).name, contactListOthers.get(i).companyName, contactListOthers.get(i).smallImageURL, contactListOthers.get(i).isFavorite);
             albumList2.add(al);
 
         }

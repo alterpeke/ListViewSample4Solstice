@@ -52,3 +52,5 @@ build/android-profile/profile-2018-01-21-01-18-57-665.rawproto
 .idea/workspace.xml
 .gradle/4.1/taskHistory/fileSnapshots.bin
 .idea/workspace.xml
+*.bin
+.gradle/4.1/fileHashes/fileHashes.bin
